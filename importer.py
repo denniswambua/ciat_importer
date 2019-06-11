@@ -1,5 +1,6 @@
 from connection import Connection
 
+
 class CIATDataImporter:
     def __init__(self, connection):
         self.connection = connection
@@ -16,13 +17,25 @@ class CIATDataImporter:
             data = cursor.fetchone()
             print("Database version : {} ".format(data))
 
+    def loader(self):
+        sql_txt = None
+        with open('db/scripts/tables.sql', 'r') as reader:
+            sql_txt = reader.read()
 
+        if sql_txt:
+
+            with self.connection.cursor() as cursor:
+                # execute SQL query using execute() method.
+                cursor.execute(sql_txt)
+                connection.commit()
+
+            print("Table created")
 
 
 if __name__ == "__main__":
-    connection =  Connection.get_instance()
+    connection = Connection.get_instance()
     try:
         importer = CIATDataImporter(connection)
-        importer.version()
+        importer.loader()
     finally:
         connection.close()
