@@ -1,0 +1,22 @@
+CREATE TABLE short_rains_intercrop_residue (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  district_61 VARCHAR(255),
+  ward_61 VARCHAR(255),
+  village_61 VARCHAR(255),
+  hhid_61 VARCHAR(255),
+  short_rains_interCrop_residue_type VARCHAR(255),
+  short_rains_interCrop_residue_other VARCHAR(255),
+  short_rains_interCrop_left_in_share VARCHAR(255),
+  short_rains_interCrop_grazing_share VARCHAR(255),
+  short_rains_interCrop_burnt_share VARCHAR(255),
+  short_rains_interCrop_residue_sales_share VARCHAR(255),
+  short_rains_interCrop_residue_sales_total_value VARCHAR(255),
+  short_rains_interCrop_residue_sales_income_control VARCHAR(255),
+  short_rains_interCrop_residue_sales_main_buyer VARCHAR(255),
+  short_rains_interCrop_residue_feed_stall VARCHAR(255),
+  short_rains_interCrop_residue_feed_own_graze VARCHAR(255),
+  short_rains_interCrop_residue_livestock_bedding VARCHAR(255),
+  short_rains_interCrop_residue_fuel VARCHAR(255),
+  short_rains_interCrop_residue_other VARCHAR(255),
+  short_rains_interCrop_residues_notes VARCHAR(255)
+);
