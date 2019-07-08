@@ -17,6 +17,5 @@ CREATE TABLE short_rains_intercrop_residue (
   short_rains_interCrop_residue_feed_own_graze VARCHAR(255),
   short_rains_interCrop_residue_livestock_bedding VARCHAR(255),
   short_rains_interCrop_residue_fuel VARCHAR(255),
-  short_rains_interCrop_residue_other VARCHAR(255),
   short_rains_interCrop_residues_notes VARCHAR(255)
 );

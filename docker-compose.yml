@@ -11,5 +11,7 @@ services:
     environment: 
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=test
+    volumes:
+      - ./conf:/etc/mysql/conf.d
     ports: 
       - "3306:3306"

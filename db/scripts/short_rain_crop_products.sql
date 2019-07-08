@@ -7,7 +7,6 @@ CREATE TABLE short_rain_crop_products (
   short_rains_Crop_products_count INT,
   short_rains_crop_products_notes VARCHAR(255),
   short_rains_residue_type VARCHAR(255),
-  short_rains_residue_other VARCHAR(255),
   short_rains_left_in_share VARCHAR(255),
   short_rains_grazing_share VARCHAR(255),
   short_rains_burnt_share VARCHAR(255),

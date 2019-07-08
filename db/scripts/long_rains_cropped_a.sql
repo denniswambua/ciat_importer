@@ -5,6 +5,5 @@ CREATE TABLE long_rains_cropped_a (
   village_221 VARCHAR(255),
   hhid_221 VARCHAR(255),
   long_rain_utilization_cropsA VARCHAR(255),
-  long_rain_utilization_otherCropsA VARCHAR(255),
-   VARCHAR(255)
+  long_rain_utilization_otherCropsA VARCHAR(255)
 );

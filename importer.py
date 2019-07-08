@@ -23,6 +23,12 @@ class CIATDataImporter:
             data = cursor.fetchone()
             print("Database version : {} ".format(data))
 
+            cursor.execute("SET GLOBAL sql_mode = '';")
+            connection.commit()
+
+            cursor.execute("SET SESSION sql_mode = '';")
+            connection.commit()
+
     def read_xls(self, loc):
         wb = xlrd.open_workbook(loc)
         main_sheet = wb.sheet_by_index(0)
@@ -72,15 +78,16 @@ class CIATDataImporter:
 
         additional_supplements_sheet =  wb.sheet_by_index(42)
         livestock_prod_utilization_sheet =  wb.sheet_by_index(43)
+        livestock_act_inputs_sheet = wb.sheet_by_index(44)
         livestock_inputs_sheet =  wb.sheet_by_index(45)
         management_practices_a_sheet =  wb.sheet_by_index(46)
-        management_practices_b =  wb.sheet_by_index(47)
+        management_practices_b_sheet =  wb.sheet_by_index(47)
 
-        manure_product_details_a_sheet =  wb.sheet_by_index(42)
-        manure_product_details_b_sheet =  wb.sheet_by_index(43)
-        credit_access =  wb.sheet_by_index(45)
-        food_insecurity =  wb.sheet_by_index(46)
-        hdds =  wb.sheet_by_index(47)
+        manure_product_details_a_sheet =  wb.sheet_by_index(48)
+        manure_product_details_b_sheet =  wb.sheet_by_index(49)
+        credit_access_sheet =  wb.sheet_by_index(50)
+        food_insecurity_sheet =  wb.sheet_by_index(51)
+        hdds_sheet =  wb.sheet_by_index(52)
 
 
         BaseLoader(connection, 'db/scripts/main.sql', 'main', columns.MAIN).handle(main_sheet)
@@ -90,7 +97,7 @@ class CIATDataImporter:
         BaseLoader(connection, 'db/scripts/subplots_details.sql', 'subplots_details', columns.SUBPLOT_DETAILS).handle(subplots_details_sheet)
         
         BaseLoader(connection, 'db/scripts/long_rains_cropped_a.sql', 'long_rains_cropped_a', columns.LONG_RAINS_CROPPEDA).handle(long_rains_cropped_a_sheet)
-        BaseLoader(connection, 'db/scripts/long_rains_cropped_b.sql', 'long_rains_cropped_b', columns.LONG_RAINS_CROPPEDB).handle(long_rains_cropped_b_sheet)
+        #-- BaseLoader(connection, 'db/scripts/long_rains_cropped_b.sql', 'long_rains_cropped_b', columns.LONG_RAINS_CROPPEDB).handle(long_rains_cropped_b_sheet)
         
         BaseLoader(connection, 'db/scripts/short_rains_cropped_a.sql', 'short_rains_cropped_a', columns.SHORT_RAINS_CROPPEDA).handle(short_rains_cropped_a_sheet)
         BaseLoader(connection, 'db/scripts/short_rains_cropped_b.sql', 'short_rains_cropped_b', columns.SHORT_RAINS_CROPPEDB).handle(short_rains_cropped_b_sheet)
@@ -108,7 +115,7 @@ class CIATDataImporter:
         
         BaseLoader(connection, 'db/scripts/short_rain_season.sql', 'short_rain_season', columns.SHORT_RAIN_SEASON).handle(short_rain_season_sheet)
         BaseLoader(connection, 'db/scripts/short_rain_act.sql', 'short_rain_act', columns.SHORT_RAIN_ACT).handle(short_rain_act_sheet)
-        BaseLoader(connection, 'db/scripts/short_rain_inputs.sql', 'short_rain_inputs', columns.SHORT_RAIN_ACT).handle(short_rain_inputs_sheet)
+        BaseLoader(connection, 'db/scripts/short_rain_inputs.sql', 'short_rain_inputs', columns.SHORT_RAIN_INPUT).handle(short_rain_inputs_sheet)
         BaseLoader(connection, 'db/scripts/short_rain_crop_products.sql', 'short_rain_crop_products', columns.SHORT_RAIN_CROP_PRODUCTS).handle(short_rain_crop_products_sheet)
         BaseLoader(connection, 'db/scripts/short_rains_crops_products.sql', 'short_rains_crops_products', columns.SHORT_RAINS_CROPS_PRODUCTS).handle(short_rains_crops_products_sheet)
         BaseLoader(connection, 'db/scripts/short_rains_intercrop_comp.sql', 'short_rains_intercrop_comp', columns.SHORT_RAINS_INTERCROP_COMP).handle(short_rains_intercrop_comp_sheet)
@@ -152,6 +159,6 @@ if __name__ == "__main__":
     connection = Connection.get_instance()
     try:
         importer = CIATDataImporter(connection)
-        importer.read_xls("db/data.xls") 
+        importer.read_xls("data/test.xlsx") 
     finally:
         connection.close()

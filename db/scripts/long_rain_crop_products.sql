@@ -6,7 +6,6 @@ CREATE TABLE long_rain_crop_products (
   hhid_24 VARCHAR(255),
   Long_rains_Crop_products_count INT,
   long_rains_residue_type VARCHAR(255),
-  long_rains_residue_other VARCHAR(255),
   long_rains_left_in_share VARCHAR(255),
   long_rains_grazing_share VARCHAR(255),
   long_rains_burnt_share VARCHAR(255),

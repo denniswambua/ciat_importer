@@ -19,6 +19,5 @@ CREATE TABLE dry_season_crop_products (
   dry_rains_residue_feed_own_graze VARCHAR(255),
   dry_rains_residue_livestock_bedding VARCHAR(255),
   dry_rains_residue_fuel VARCHAR(255),
-  dry_rains_residue_other VARCHAR(255),
   dry_rains_crop_residues_notes VARCHAR(255)
 );

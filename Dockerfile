@@ -1,5 +1,7 @@
 FROM python:3.7
 RUN pip install pipenv
+RUN apt update
+RUN apt install -y mysql-client
 ADD . /code
 WORKDIR /code
 RUN pipenv install

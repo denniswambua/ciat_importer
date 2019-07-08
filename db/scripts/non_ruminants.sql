@@ -16,17 +16,5 @@ CREATE TABLE non_ruminants (
   way_acquired VARCHAR(255),
   other_way_acquired VARCHAR(255),
   if_purchased VARCHAR(255),
-  notes_non_ruminant_livestock VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255),
-   VARCHAR(255)
+  notes_non_ruminant_livestock VARCHAR(255)
 );
