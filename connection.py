@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 # Open database connection
 load_dotenv()
 
-DATABASE = os.getenv("DATABASE", "mariadb")
+DATABASE = os.getenv("DATABASE", "mysql")
 USERNAME = os.getenv("USERNAME", "root")
 PASSWORD = os.getenv("PASSWORD", "test")
 DB_NAME = os.getenv("DB_NAME", "test")

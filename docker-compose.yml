@@ -6,8 +6,10 @@ services:
      - .:/code
     depends_on:
       - mariadb
-  mariadb:
-    image: "mariadb:latest"
+  mysql:
+    image: "mysql:latest"
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
     environment: 
       - MYSQL_ROOT_PASSWORD=test
       - MYSQL_DATABASE=test
