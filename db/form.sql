@@ -1,4 +1,4 @@
-CREATE TABLE `Feedgap_datacollection_forms_Tanzania_1st_sampling_v2` (
+CREATE TABLE {} (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     xform_data_id INT NOT NULL,
     xform_id INT NOT NULL,
@@ -7,7 +7,6 @@ CREATE TABLE `Feedgap_datacollection_forms_Tanzania_1st_sampling_v2` (
     status VARCHAR(255),
     version VARCHAR(255),
     duration DECIMAL,
-    last_edited DATETIME,
     media_count INT,
     total_media INT,
     submitted_by VARCHAR(255),
