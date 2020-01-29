@@ -1,6 +1,7 @@
 import json
 import os
 import requests
+import argparse
 
 from requests.exceptions import HTTPError
 from connection import Connection
@@ -107,8 +108,13 @@ def load_data(connection, data, table_name):
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="This scripts helps load data from ONA api to a mysql database")
+    parser.add_argument('--form', required=True, type=int, help="Ona api form id")
+
+    args = parser.parse_args()
+
     connection = Connection.get_instance()
-    form_id = 438735
+    form_id = args.form
 
     try:
         data = make_request(f"https://api.ona.io/api/v1/forms/{form_id}")
